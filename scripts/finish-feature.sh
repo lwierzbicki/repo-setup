@@ -44,15 +44,34 @@ echo ""
 # Extract issue number from branch name if present
 ISSUE_NUM=$(echo "$CURRENT_BRANCH" | grep -oP '#\K[0-9]+' || echo "")
 
-# Create PR with gh cli
-# --fill uses commit messages for PR title and body
-# --base dev targets the dev branch
-gh pr create --base dev --fill || {
-    echo ""
-    echo "❌ Failed to create PR"
-    echo "You can create it manually on GitHub"
-    exit 1
-}
+# Create PR with issue reference in body to auto-close
+if [ -n "$ISSUE_NUM" ]; then
+    # Get commit messages for PR body
+    PR_BODY=$(git log origin/dev..HEAD --pretty=format:"- %s" 2>/dev/null || echo "")
+    
+    # Add closing keyword
+    PR_BODY="${PR_BODY}
+
+Closes #${ISSUE_NUM}"
+    
+    # Get title from first commit
+    PR_TITLE=$(git log -1 --pretty=format:"%s" | sed 's/ (Closes #[0-9]*)//' | sed 's/ (Fixes #[0-9]*)//')
+    
+    gh pr create --base dev --title "$PR_TITLE" --body "$PR_BODY" || {
+        echo ""
+        echo "❌ Failed to create PR"
+        echo "You can create it manually on GitHub"
+        exit 1
+    }
+else
+    # No issue number found, use --fill
+    gh pr create --base dev --fill || {
+        echo ""
+        echo "❌ Failed to create PR"
+        echo "You can create it manually on GitHub"
+        exit 1
+    }
+fi
 
 echo ""
 echo "✅ Pull Request created!"
