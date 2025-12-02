@@ -6,14 +6,24 @@ labels: enhancement
 assignees: ''
 ---
 
-## Is your feature request related to a problem?
-A clear description of what the problem is. Ex. I'm always frustrated when [...]
+## Summary
 
-## Describe the solution you'd like
-A clear description of what you want to happen.
+<!-- Short description of the feature. What do you want to add or change? -->
 
-## Describe alternatives you've considered
-Any alternative solutions or features you've considered.
+## Problem / Motivation
 
-## Additional context
-Add any other context or screenshots about the feature request here.
+<!--
+Explain why this feature is needed.
+- What problem does it solve?
+- Who is affected?
+- What is the impact of not having it?
+-->
+
+## Proposed Solution
+
+<!--
+Describe how you think this should be implemented.
+- High-level approach
+- Key changes (APIs, CLI, UI, etc.)
+- Any constraints or trade-offs
+-->

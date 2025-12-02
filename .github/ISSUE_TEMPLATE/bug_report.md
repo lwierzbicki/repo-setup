@@ -6,25 +6,43 @@ labels: bug
 assignees: ''
 ---
 
-## Describe the bug
-A clear and concise description of what the bug is.
+## Summary
 
-## To Reproduce
-Steps to reproduce the behavior:
-1. Run command '...'
-2. With arguments '...'
-3. See error
-
-## Expected behavior
-A clear description of what you expected to happen.
-
-## Screenshots/Output
-If applicable, paste the error output or screenshots.
+<!-- Short description of the bug. What is going wrong? -->
 
 ## Environment
-- OS: [e.g. Windows 10, macOS 13, Ubuntu 22.04]
-- CLI Version: [e.g. v1.2.0]
-- Shell: [e.g. bash, zsh, PowerShell]
 
-## Additional context
-Add any other context about the problem here.
+<!--
+Details about where this happened (fill in what makes sense for the project):
+
+- OS: (e.g., Ubuntu 24.04, macOS 15, Windows 11)
+- Runtime / Version: (e.g., Python 3.12, Node.js 22, etc.)
+- Application version / Git commit: (e.g., v1.2.3 or abc1234)
+-->
+
+## Steps to Reproduce
+
+<!--
+List steps clearly so others can reproduce the issue:
+
+1. ...
+2. ...
+3. ...
+-->
+
+## Expected Behavior
+
+<!-- What did you expect to happen? -->
+
+## Actual Behavior
+
+<!-- What actually happened instead? -->
+
+## Logs / Screenshot
+
+<!--
+Paste relevant logs, stack traces, or attach screenshots.
+Use fenced code blocks for logs, for example:
+
+```text
+<log output here>
