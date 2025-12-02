@@ -68,7 +68,15 @@ check_templates() {
         echo "  └── scripts/"
         echo "      ├── start-feature.sh"
         echo "      ├── start-bugfix.sh"
-        echo "      └── finish-feature.sh"
+        echo "      ├── finish-feature.sh"
+        echo "      ├── finish-bugfix.sh"
+        echo "      ├── push-feature.sh"
+        echo "      ├── prepare-release.sh"
+        echo "      ├── create-release-pr.sh"
+        echo "      ├── tag-release.sh"
+        echo "      ├── sync-dev.sh"
+        echo "      ├── status.sh"
+        echo "      └── cleanup-branches.sh"
         exit 1
     fi
     print_success "Templates directory found"
@@ -347,8 +355,23 @@ create_scripts() {
     
     mkdir -p scripts
     
+    # List of all scripts
+    SCRIPTS=(
+        "start-feature.sh"
+        "start-bugfix.sh"
+        "finish-feature.sh"
+        "finish-bugfix.sh"
+        "push-feature.sh"
+        "prepare-release.sh"
+        "create-release-pr.sh"
+        "tag-release.sh"
+        "sync-dev.sh"
+        "status.sh"
+        "cleanup-branches.sh"
+    )
+    
     # Check if template scripts exist
-    for script in start-feature.sh start-bugfix.sh finish-feature.sh; do
+    for script in "${SCRIPTS[@]}"; do
         if [ ! -f "$TEMPLATES_DIR/scripts/$script" ]; then
             print_error "Template not found: $TEMPLATES_DIR/scripts/$script"
             exit 1
