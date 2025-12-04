@@ -93,11 +93,6 @@ git commit -m "Fix critical crash (Fixes #456)"
 2) Create release PR (automatically collects all issues!)
 ```
 ./scripts/create-release-pr.sh 1.2.0
-# Analyzes commits between main and dev
-# Extracts all issue numbers
-# Fetches issue titles and labels
-# Creates PR with all "Closes #N" references
-# Issues will auto-close when PR merges!
 ```
 3) Review and merge PR on GitHub
 ```
