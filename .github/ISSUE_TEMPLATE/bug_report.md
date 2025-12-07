@@ -34,10 +34,6 @@ List steps clearly so others can reproduce the issue:
 
 <!-- What did you expect to happen? -->
 
-## Actual Behavior
-
-<!-- What actually happened instead? -->
-
 ## Logs / Screenshot
 
 <!--
