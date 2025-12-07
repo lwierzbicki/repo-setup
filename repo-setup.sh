@@ -60,23 +60,6 @@ check_templates() {
         echo "  ├── README.md"
         echo "  ├── CHANGELOG.md"
         echo "  ├── DEVELOPMENT.md"
-        echo "  ├── .github/"
-        echo "  │   ├── FUNDING.yml"
-        echo "  │   └── ISSUE_TEMPLATE/"
-        echo "  │       ├── bug_report.md"
-        echo "  │       └── feature_request.md"
-        echo "  └── scripts/"
-        echo "      ├── start-feature.sh"
-        echo "      ├── start-bugfix.sh"
-        echo "      ├── finish-feature.sh"
-        echo "      ├── finish-bugfix.sh"
-        echo "      ├── push-feature.sh"
-        echo "      ├── prepare-release.sh"
-        echo "      ├── create-release.sh"
-        echo "      ├── tag-release.sh"
-        echo "      ├── sync-dev.sh"
-        echo "      ├── status.sh"
-        echo "      └── cleanup-branches.sh"
         exit 1
     fi
     print_success "Templates directory found"
@@ -257,12 +240,12 @@ create_funding() {
     
     mkdir -p .github
     
-    if [ ! -f "$TEMPLATES_DIR/.github/FUNDING.yml" ]; then
-        print_error "Template not found: $TEMPLATES_DIR/.github/FUNDING.yml"
+    if [ ! -f "$SCRIPT_DIR/.github/FUNDING.yml" ]; then
+        print_error "Template not found: $SCRIPT_DIR/.github/FUNDING.yml"
         exit 1
     fi
     
-    cp "$TEMPLATES_DIR/.github/FUNDING.yml" .github/FUNDING.yml
+    cp "$SCRIPT_DIR/.github/FUNDING.yml" .github/FUNDING.yml
     
     print_success "FUNDING.yml created from template"
 }
@@ -273,18 +256,18 @@ create_issue_templates() {
     
     mkdir -p .github/ISSUE_TEMPLATE
     
-    if [ ! -f "$TEMPLATES_DIR/.github/ISSUE_TEMPLATE/bug_report.md" ]; then
-        print_error "Template not found: $TEMPLATES_DIR/.github/ISSUE_TEMPLATE/bug_report.md"
+    if [ ! -f "$SCRIPT_DIR/.github/ISSUE_TEMPLATE/bug_report.md" ]; then
+        print_error "Template not found: $SCRIPT_DIR/.github/ISSUE_TEMPLATE/bug_report.md"
         exit 1
     fi
     
-    if [ ! -f "$TEMPLATES_DIR/.github/ISSUE_TEMPLATE/feature_request.md" ]; then
-        print_error "Template not found: $TEMPLATES_DIR/.github/ISSUE_TEMPLATE/feature_request.md"
+    if [ ! -f "$SCRIPT_DIR/.github/ISSUE_TEMPLATE/feature_request.md" ]; then
+        print_error "Template not found: $SCRIPT_DIR/.github/ISSUE_TEMPLATE/feature_request.md"
         exit 1
     fi
     
-    cp "$TEMPLATES_DIR/.github/ISSUE_TEMPLATE/bug_report.md" .github/ISSUE_TEMPLATE/
-    cp "$TEMPLATES_DIR/.github/ISSUE_TEMPLATE/feature_request.md" .github/ISSUE_TEMPLATE/
+    cp "$SCRIPT_DIR/.github/ISSUE_TEMPLATE/bug_report.md" .github/ISSUE_TEMPLATE/
+    cp "$SCRIPT_DIR/.github/ISSUE_TEMPLATE/feature_request.md" .github/ISSUE_TEMPLATE/
     
     print_success "Issue templates created from templates"
 }
@@ -373,7 +356,7 @@ create_scripts() {
     # Check if template scripts exist
     for script in "${SCRIPTS[@]}"; do
         if [ ! -f "$SCRIPT_DIR/scripts/$script" ]; then
-            print_error "Template not found: $TEMPLATES_DIR/scripts/$script"
+            print_error "Template not found: $SCRIPT_DIR/scripts/$script"
             exit 1
         fi
     done
